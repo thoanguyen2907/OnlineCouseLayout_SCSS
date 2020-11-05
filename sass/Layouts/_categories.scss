@@ -1,0 +1,22 @@
+.categories{
+    margin: $mg-2 0;
+    .categories__content{
+        width:90%; 
+        margin: 0 auto; 
+       
+        .categories__items{
+            padding: $pd-1; 
+            font-size: $fs-3;
+            border: 1px solid $color-gray-4; 
+            margin-bottom: $mg-1;
+            box-shadow: 0 3px 1px 0 transparent;
+            transition: all 0.3s ease;
+            &:hover{
+                box-shadow: 0 2px 2px 0px $color-dark-0 ;
+                cursor: pointer;
+            }
+
+        }
+
+    }
+}

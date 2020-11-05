@@ -1,0 +1,33 @@
+.intro{
+    background:linear-gradient(-45deg, $color-red-0, $color-purple);
+    padding: $pd-1;
+   
+    .intro__content{
+            color: white; 
+            width: 78%;
+            margin: 0 auto;
+         .intro__items{
+             display: flex;
+             align-items: center;
+             .intro__icon{
+                font-size: $fs-2+10;
+                margin-right: $mg-1;
+            }
+            .intro__detail b{
+                @include styleText($color-white-0, $fs-1, $fw-2); 
+            }
+        
+         }
+    }
+    @include responsive("extra-large"){
+        .intro__items{
+            .intro__icon{
+                display: none;
+                 }         
+        } 
+                }
+    @include responsive("medium"){      
+            display: none;
+
+    }
+}
