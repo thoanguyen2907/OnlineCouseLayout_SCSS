@@ -26,8 +26,11 @@
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
             crossorigin="anonymous">
             <!--scrollbar-->
+
              <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
         <!--MAIN CSS-->
         <link rel="stylesheet" href="./css/Vendors/main.css">
     </head>
@@ -162,17 +165,22 @@ a.article, a.article:hover {
 ----------------------------------------------------- */
 #content {
     width: 100%; 
-    padding: 40px;
+    padding: 0; 
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
     top: 0;
     right: 0;
+
 }
 #content.active {
     width: 100%;
 
 }
+.fixed-position {
+    position: fixed;
+ }
+
 
 
 /* ---------------------------------------------------
@@ -184,6 +192,7 @@ a.article, a.article:hover {
     }
     #sidebar.active {
         margin-left: 0;
+        
     }
     #content {
         width: 100%;
@@ -209,11 +218,34 @@ a.article, a.article:hover {
     
     }
 }
+.close__menu{
+    position: absolute;
+    top: 5%; 
+    right: -30%;
+    display: none;
+    cursor: pointer;
+}
+.close__menu i{
+    font-size: 2rem; 
+    color: #949494;
+    padding: 10px 15px; 
+    border: 1px solid white; 
+    border-radius: 50%;
+    background-color: white;
+
+}
+.animate__animated.animate__zoomIn {
+  --animate-duration: 0.4s;
+}
+
     </style>
-    <body>
+    <body class="preload">
         <div class="wrapper">
   <!-- Sidebar Holder -->
   <nav id="sidebar">
+    <div class="close__menu">
+        <i class="fa fa-times"></i>
+    </div> 
     <div class="sidebar-header">
         <h3>Header as you want </h3></h3>
     </div>
@@ -243,9 +275,7 @@ a.article, a.article:hover {
         </li>
         
         
-    </ul>
-
-    
+    </ul>  
 </nav>
 <div id="content">
         <!--SIDEBAR MINI--> 
@@ -264,7 +294,8 @@ a.article, a.article:hover {
                     <span>On</span>
                 </div>
             </div>
-        </div>       
+        </div>  
+    
         <!--HEADER-->
         <header class="header">
             <nav class="myNavBar navbar navbar-expand-md navbar-light">
@@ -345,9 +376,9 @@ a.article, a.article:hover {
                         </ul>
                     </div>
                 </div>
-
+                <div class="header__overlay"></div>
             </nav>
-
+           
         </header>
         <!--COVER-->
         <section class="cover">
@@ -1367,33 +1398,35 @@ $('.viewing__carousel').slick({
                     $('#sidebar, #content').toggleClass('active');
                     $('.collapse.in').toggleClass('in');
                     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            
+                    $(".header__overlay").css('display', 'block'); 
+                    $("body").css('overflow', 'hidden');  
+                    setTimeout(()=>{
+                        $(".close__menu").css('display', 'block');     
+                        $(".close__menu").addClass('animate__animated animate__zoomIn');               
+                    }, 200);
+                    setTimeout(()=>{    
+                        $(".close__menu").removeClass('animate__animated animate__zoomIn');               
+                    }, 1400)
+
+                      //$('body').addClass("fixed-position");
                 }); 
-            
+            $(".close__menu").on("click", function(){
+                $('#sidebar, #content').removeClass('active');
+                $(".close__menu").css('display', 'none'); 
+                $(".header__overlay").css('display', 'none');
+                $("body").css('overflow', 'visible');  
+            });
+            $(".header__overlay").on("click", function(){
+                $('#sidebar, #content').removeClass('active');
+                $(".close__menu").css('display', 'none'); 
+                $(".header__overlay").css('display', 'none'); 
+                $("body").css('overflow', 'visible');  
+            })
         });              
         </script>
         <script>
          
-//             document.addEventListener('click',(e) => {
-//                 if(sidebar.classList.contains("active") || content.classList.contains("active")){
-//                     if(!sidebar.contains(e.target)){
-//                 console.log(e.target); 
-//                 console.log(sidebar);
-//                 console.log(content); 
-//                 // sidebar.classList.remove('active'); 
-//                 // content.classList.remove('active')
-//             }
-//                 }             
-// }); 
-       let sidebar = document.querySelector("#sidebar"); 
-        let content = document.querySelector("#content"); 
-        document.addEventListener('click',function(e){
-        let check = e.target.closest('#sidebar');
-        if(check==null){
-        sidebar.classList.remove('active')
-        content.classList.remove('active')
-  }
-})
+
 
             
         </script>

@@ -15,6 +15,9 @@ html, body {
   background-color: #fff;
   color: #29303b; }
 
+.preload {
+  transition: none !important; }
+
 .students__carousel .slick-prev.slick-arrow, .students__carousel .slick-next.slick-arrow, .viewing__carousel .slick-prev.slick-arrow, .viewing__carousel .slick-next.slick-arrow, .multiple-items .slick-prev.slick-arrow, .multiple-items .slick-next.slick-arrow {
   line-height: 0;
   position: absolute;
@@ -54,6 +57,16 @@ html, body {
   /* spacing in between each slide */
   margin-right: 8px; }
 
+.myNavBar .header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur 2px;
+  display: none;
+  z-index: 300; }
 .myNavBar .myNavBar__col {
   padding-left: 0; }
 .myNavBar .myNavBar__left {
@@ -638,6 +651,8 @@ html, body {
 body.darkMode {
   color: #9da9bb;
   background-color: #061325; }
+  body.darkMode #content {
+    background-color: #061325 !important; }
 
 .darkMode header .myNavBar {
   color: #9da9bb;

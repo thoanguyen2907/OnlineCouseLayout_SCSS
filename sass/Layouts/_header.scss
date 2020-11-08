@@ -1,4 +1,15 @@
 .myNavBar {
+    .header__overlay{
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0,0.5);
+        backdrop-filter: blur 2px;
+        display: none;
+        z-index: 300;
+    }
     .myNavBar__col{
         padding-left: 0;
     }

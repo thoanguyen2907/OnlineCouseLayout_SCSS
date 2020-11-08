@@ -1,5 +1,9 @@
 window.addEventListener("load", () => {
     truncateCardTitle();
+    setTimeout(()=>{
+        document.body.classList.remove("preload"); 
+    }, 1000)
+
 })
 
 function truncateCardTitle() {
