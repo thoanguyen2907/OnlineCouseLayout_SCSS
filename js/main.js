@@ -37,7 +37,10 @@ checkBox.addEventListener("click", () => {
     } else {
         body.classList.remove("darkMode");
     }
-})
-// console.log(checkBox.checked)
+}); 
+
+
+
+
 
 
