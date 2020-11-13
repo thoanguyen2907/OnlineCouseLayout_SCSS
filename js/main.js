@@ -10,13 +10,13 @@ function truncateCardTitle() {
     let cardList = document.getElementsByClassName('card-title');
     for (let i = 0; i < cardList.length; i++) {
         let text = cardList[i].innerHTML;
-        let newText = truncateString(text, 4);
+        let newText = truncateString(text, 32);
         cardList[i].innerHTML = newText;
     }
 }
 function truncateString(str, num) {
     if (str.length > num) {
-        return str.slice((0, num)) + "...";
+        return str.slice(0, num) + "...";
     } else {
         return str;
     }
