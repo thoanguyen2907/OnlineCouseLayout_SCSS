@@ -43,9 +43,7 @@
         .myNavBar__form-search{
             flex-grow: 8;
             @include styleFormSearch($color-white-cream, $color-white-0, $color-gray-4, 
-            $color-black-light); 
-        
-           
+            $color-black-light);     
         }
     }
     .myNavBar--reset{
@@ -76,7 +74,7 @@
                         padding: $pd-1;
                         text-align: center;
                         position: absolute;
-                        top: 60px; 
+                        top: 45px; 
                         right: 0; 
                         border-top: 1px solid $color-gray-1; 
                         box-shadow: 0 4px 16px $color-gray-5;
