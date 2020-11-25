@@ -25,7 +25,7 @@
                     @include styleText($color-black-0, $fs-1, $fw-0);
                    &.active{
                        border:none; 
-                       border-bottom: 6px solid $color-blue-0;
+                       border-bottom: 2px solid $color-blue-0;//mentor sửa 
                    }
                    &:hover{
                     @include styleText($color-blue-0, $fs-1, $fw-0);

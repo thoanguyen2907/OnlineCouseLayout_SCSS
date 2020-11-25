@@ -32,8 +32,7 @@ buttonSidebar.addEventListener("click", () => {
 })
 checkBox.addEventListener("click", () => {
     if (checkBox.checked) {
-        body.classList.add("darkMode");
-        
+        body.classList.add("darkMode");   
     } else {
         body.classList.remove("darkMode");
     }
